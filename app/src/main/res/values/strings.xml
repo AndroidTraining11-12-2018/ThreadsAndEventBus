@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ThreadsAndEventBus</string>
+    <string name="start_thread">START THREAD</string>
+    <string name="start_runnable">START RUNNABLE</string>
+    <string name="start_async_task">START ASYNC TASK</string>
+    <string name="msg_event_txt">Send Message Event</string>
+    <string name="type_msg_to_send">Type Msg to Send</string>
+    <string name="msg_to_send">Msg to Send</string>
+</resources>

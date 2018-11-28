@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tvThreadReturnDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:textSize="@dimen/text_size_18"
+        android:textColor="@color/color_green"/>
+
+    <Button
+        android:id="@+id/btnStartThread"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:text="@string/start_thread"
+        android:onClick="onButtonClicked"/>
+
+    <TextView
+        android:id="@+id/tvRunnableReturnDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:textSize="@dimen/text_size_18"
+        android:textColor="@color/color_green"/>
+
+    <Button
+        android:id="@+id/btnStartRunnable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:text="@string/start_runnable"
+        android:onClick="onButtonClicked"/>
+
+    <TextView
+        android:id="@+id/tvAsyncReturnDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:textSize="@dimen/text_size_18"
+        android:textColor="@color/color_green"/>
+
+    <Button
+        android:id="@+id/btnStartAsync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:text="@string/start_async_task"
+        android:onClick="onButtonClicked"/>
+
+    <EditText
+        android:id="@+id/etEventBusMsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/resmargin11"
+        android:hint="@string/msg_to_send"/>
+
+
+    <Button
+        android:id="@+id/btnSendMessageEvent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:text="@string/msg_event_txt" />
+
+    <TextView
+        android:id="@+id/tvEventBusReturn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:textSize="@dimen/text_size_18"
+        android:textColor="@color/color_green"/>
+
+</LinearLayout>
