@@ -4,6 +4,8 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.TextView;
 
+import org.greenrobot.eventbus.EventBus;
+
 import static com.mobileapps.threadsandeventbus.Constants.TAG_ERROR_ASYNC;
 
 public class TestAsync extends AsyncTask<String, Integer, String> {
@@ -34,7 +36,8 @@ public class TestAsync extends AsyncTask<String, Integer, String> {
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
         String finalStringToDisplay = Constants.ASYNC_PROGRESS_END_STRING + s;
-        tvAsyncTaskResultsDisplay.setText(finalStringToDisplay);
+        //tvAsyncTaskResultsDisplay.setText(finalStringToDisplay);
+        EventBus.getDefault().post(new AsyncEvent(finalStringToDisplay));
 
     }
 

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -15,27 +16,22 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
-    @BindView(R.id.tvThreadReturnDisplay)
+
     TextView tvThreadResultsDisplay;
-
-    @BindView(R.id.tvRunnableReturnDisplay)
     TextView tvRunnableResultsDisplay;
-
-    @BindView(R.id.tvAsyncReturnDisplay)
     TextView tvAsyncResultsDisplay;
-
-    @BindView(R.id.tvEventBusReturn)
     TextView tvEventBusReturn;
-
-    @BindView(R.id.etEventBusMsg)
     EditText etMessageToSend;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        ButterKnife.bind(this);
+        tvThreadResultsDisplay = findViewById(R.id.tvThreadReturnDisplay);
+        tvRunnableResultsDisplay = findViewById(R.id.tvRunnableReturnDisplay);
+        tvAsyncResultsDisplay= findViewById(R.id.tvAsyncReturnDisplay);
+        tvEventBusReturn = findViewById(R.id.tvEventBusReturn);
+        etMessageToSend = findViewById(R.id.etEventBusMsg);
     }
 
     @Override
@@ -78,11 +74,13 @@ public class MainActivity extends AppCompatActivity {
         tvEventBusReturn.setText(msgRecieved);
     }
 
-    @OnClick(R.id.btnSendMessageEvent)
-    public void onEventClick(View view) {
-        String msgToSend = etMessageToSend.getText().toString();
-        MyMessageEvents myMessageEvents = new MyMessageEvents(msgToSend);
-        EventBus.getDefault().post(myMessageEvents);
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(AsyncEvent event) {
+        String msgRecieved = event.getMessage();
+        tvEventBusReturn.setText(msgRecieved);
+        Toast.makeText(this,msgRecieved,  Toast.LENGTH_SHORT).show();
     }
+
+
 
 }
